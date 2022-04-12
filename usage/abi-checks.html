@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABI Check Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cache Configuration" href="caching.html" />
+    <link rel="prev" title="Pre-release Test Configuration" href="prerelease-tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ABI Check Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#abi-check-example-configs">ABI check example configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-for-abi-check-feature">Tips for ABI check feature</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>ABI Check Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/abi-checks.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="abi-check-configuration">
+<h1>ABI Check Configuration<a class="headerlink" href="#abi-check-configuration" title="Permalink to this headline"></a></h1>
+<p>Generally speaking, the <a class="reference external" href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a> of a library can break for various reasons. A detailed explanation and a list of DOs and DON’Ts can be found in the <a class="reference external" href="https://community.kde.org/Policies/Binary_Compatibility_Issues_With_C%2B%2B">KDE Community Wiki</a>.</p>
+<p>The ABI checks with <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code> can be enabled by setting ‘ABICHECK_URL’ to the <strong>stable version</strong> of your code.</p>
+<section id="abi-check-example-configs">
+<h2>ABI check example configs<a class="headerlink" href="#abi-check-example-configs" title="Permalink to this headline"></a></h2>
+<p>Simplest example: Check against a specific stable branch (e.g. <code class="docutils literal notranslate"><span class="pre">kinetic</span></code> branch) for push and pull request tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">kinetic</span>
+  <span class="n">ABICHECK_URL</span><span class="o">=</span><span class="s1">&#39;github:ros-industrial/ros_canopen#kinetic&#39;</span>
+</pre></div>
+</div>
+<p>If pull requests should be checked against the merge parent instead of the stable version (Travis CI only). The only benefit is that PRs might pass even if the target branch breaks the ABI to the stable version.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">kinetic</span>
+  <span class="n">ABICHECK_URL</span><span class="o">=</span><span class="s1">&#39;github:ros-industrial/ros_canopen#kinetic&#39;</span>
+  <span class="n">ABICHECK_MERGE</span><span class="o">=</span><span class="n">auto</span>
+</pre></div>
+</div>
+<p>URL can be specified in shortcut form <code class="docutils literal notranslate"><span class="pre">provider:organization/repository#version</span></code>, which is supported for bitbucket, github and gitlab. “<code class="docutils literal notranslate"><span class="pre">version</span></code>” can be either one of the name of the branch, the tagged version, or even a commit. Some (more) concrete examples:</p>
+<ul class="simple">
+<li><p>github:ros-industrial-release/ros_canopen-release#upstream</p></li>
+<li><p>gitlab:ipa-mdl/ci-example#master</p></li>
+<li><p>github:ros-planning/moveit#0.9.9</p></li>
+</ul>
+<p>Alternatively you can use the following forms as URL.:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ros-industrial/ros_canopen/archive/kinetic.zip">https://github.com/ros-industrial/ros_canopen/archive/kinetic.zip</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ros-industrial-release/ros_canopen-release/archive/upstream.zip">https://github.com/ros-industrial-release/ros_canopen-release/archive/upstream.zip</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/ipa-mdl/ci-example/repository/master/archive.zip">https://gitlab.com/ipa-mdl/ci-example/repository/master/archive.zip</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ros-planning/moveit/archive/0.9.9.tar.gz">https://github.com/ros-planning/moveit/archive/0.9.9.tar.gz</a></p></li>
+</ul>
+<p>With this format, the URL needs to point to an actual archive. E.g. on GitHub, URL for a branch’s archive can be <a class="reference external" href="https://github.com/organization/repository/archive/branch.zip">https://github.com/organization/repository/archive/branch.zip</a></p>
+</section>
+<section id="tips-for-abi-check-feature">
+<h2>Tips for ABI check feature<a class="headerlink" href="#tips-for-abi-check-feature" title="Permalink to this headline"></a></h2>
+<p>It is up to each repository’s maintainer for which baseline code you check ABI against. Here are some recommendations per possible situation:</p>
+<ul class="simple">
+<li><p>Development branch and stable branch (i.e. mirroring the released code) are separately maintained –&gt; checking against stable branch.</p></li>
+<li><p>No stable branch –&gt;</p>
+<ul>
+<li><p>Check against the stable tagged version.</p></li>
+<li><p>Or you could check against the same branch. This way:</p>
+<ul>
+<li><p>ABI check runs per every change/push into your branch, which is superfluous.</p></li>
+<li><p>Reasonable for pull requests.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="prerelease-tests.html" class="btn btn-neutral float-left" title="Pre-release Test Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="caching.html" class="btn btn-neutral float-right" title="Cache Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

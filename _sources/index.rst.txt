@@ -1,46 +1,32 @@
-ROS2 CANopen Stack
+Industrial CI
+=========================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Getting Started
+
+   getting-started/introduction
+   getting-started/quickstart
+   getting-started/supported-systems
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Usage
+
+   usage/configurable-variables
+   usage/workspace-management
+   usage/custom-docker
+   usage/private-repositories
+   usage/prerelease-tests
+   usage/abi-checks
+   usage/caching
+   usage/pre-post-commands
+   usage/operating-system
+   usage/local-run
+
+Indices and tables
 ==================
 
-This is the documentation of the ROS2 CANopen stack. 
-
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Getting started
-
-  overview
-  installation
-    
-.. toctree::
-  :maxdepth: 1
-  :caption: Concepts and Design
-
-  design-objectives
-  configuration
-  device-manager
-  system-interface
-  master
-  proxy-device
-  motion-controller
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Usage
-  
-  configuration-package
-  
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Extension
-
-  new-driver
-  new-master
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Tests and Benchmarks
-
-  alpha-test-description
-  sil-tests
-  tested-hardware
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

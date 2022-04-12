@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workspace Configuration" href="workspace-management.html" />
+    <link rel="prev" title="Supported Systems" href="../getting-started/supported-systems.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">General Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mandatory-environment-variables">Mandatory Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-environment-variables">Optional environment variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>General Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/configurable-variables.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="general-configuration">
+<h1>General Configuration<a class="headerlink" href="#general-configuration" title="Permalink to this headline"></a></h1>
+<section id="mandatory-environment-variables">
+<h2>Mandatory Environment variables<a class="headerlink" href="#mandatory-environment-variables" title="Permalink to this headline"></a></h2>
+<p>You can configure the behavior in the <a class="reference external" href="#terminology">CI config</a> in your client repository.</p>
+<p>Required environment variables:</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Mandatory Environment Variables</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROS_DISTRO</span></code></p></td>
+<td><p>Version of ROS in all lower case. E.g.: <code class="docutils literal notranslate"><span class="pre">indigo</span></code>. If it is set in the custom Docker (base) image, it might be omitted in the script call.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="optional-environment-variables">
+<h2>Optional environment variables<a class="headerlink" href="#optional-environment-variables" title="Permalink to this headline"></a></h2>
+<p>Note that some of these currently tied only to a single option, but we still leave them for the future when more options become available.</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Optional Environment Variables</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ABICHECK_MERGE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Used only when <code class="docutils literal notranslate"><span class="pre">ABICHECK_URL</span></code> is set. For <em>Travis CI</em> it can be set to ‘auto’ to auto-detect pull requests. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> the merge parent (see <a class="reference external" href="#terminology">Terminology section</a>) will be checked against.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ABICHECK_URL</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Run binary compatibility check with <a class="reference external" href="https://github.com/lvc/abi-compliance-checker">ABICC</a>. The URL should point to a baseline archive (*.tar.*,*.zip, *.tgz or *.tbz2). See more in <a class="reference external" href="#abi-checks">the ABI checks section</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ABICHECK_VERSION</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Used only when <code class="docutils literal notranslate"><span class="pre">ABICHECK_URL</span></code> is set. Version name (for display only) of the set of code, which the location is specified in <code class="docutils literal notranslate"><span class="pre">ABICHECK_URL</span></code> of. The version will be automatically read from the URL passed in <code class="docutils literal notranslate"><span class="pre">ABICHECK_URL</span></code> if possible, but for a URL that doesn’t point to a version-based file name (e.g. the link for a tagged version on Gitlab doesn’t).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ADDITIONAL_DEBS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>More DEBs to be used. List the name of DEB(s delimitted by whitespace if multiple DEBs specified). Needs to be full-qualified Ubuntu package name. E.g.: <code class="docutils literal notranslate"><span class="pre">ros-indigo-roslint</span> <span class="pre">ros-indigo-gazebo-ros</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AFTER_SCRIPT</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Used to specify shell commands that run after all source tests. NOTE: <a class="reference external" href="https://docs.travis-ci.com/user/customizing-the-build#Breaking-the-Build">Unlike Travis CI</a> where <code class="docutils literal notranslate"><span class="pre">after_script</span></code> doesn’t affect the build result, the result in the commands specified with this DOES affect the build result. See more <a class="reference external" href="./index.rst#run-pre-post-process-custom-commands">here</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">APT_PROXY</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Configure APT to use the provided URL as http proxy.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BASEDIR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$HOME</span></code></p></td>
+<td><p>Base directory in which the upstream, target, and downstream workspaces will be built. Note: this directory is bind-mounted, so it can be read by the CI service, but its contents will not persist in the image configured by <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BLACK_CHECK</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If true, will check Python code formatting with <a class="reference external" href="https://black.readthedocs.io/en/stable/">Black</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BUILDER</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">catkin_tools</span></code> for ROS1, <code class="docutils literal notranslate"><span class="pre">colcon</span></code> for ROS2</p></td>
+<td><p>Select the builder e.g. to build ROS1 packages with colcon (options: <code class="docutils literal notranslate"><span class="pre">catkin_tools</span></code>, <code class="docutils literal notranslate"><span class="pre">colcon</span></code>, <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code>, <code class="docutils literal notranslate"><span class="pre">catkin_make_isolated</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CATKIN_LINT</span></code></p></td>
+<td><p>not set. Value range: [true|pedantic]</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, run <a class="reference external" href="http://fkie.github.io/catkin_lint/">catkin_lint</a> with <code class="docutils literal notranslate"><span class="pre">--explain</span></code> option. If <code class="docutils literal notranslate"><span class="pre">pedantic</span></code>, <code class="docutils literal notranslate"><span class="pre">catkin_lint</span></code> command runs with <code class="docutils literal notranslate"><span class="pre">--strict</span> <span class="pre">-W2</span></code> option, i.e. more verbose output will print, and the CI job fails if there’s any error and/or warning occurs. Industrial CI uses the <a class="reference external" href="https://pypi.org/project/catkin-lint/">latest version available from pypi</a>. If the older version in the <a class="reference external" href="http://packages.ros.org/ros/ubuntu/pool/main/c/catkin-lint/">ros repository</a> is required, <code class="code docutils literal notranslate"><span class="pre">ADDITIONAL_DEBS='python-catkin-lint'</span></code> can be added to the CI Config.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CATKIN_LINT_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If true, you can pass whatever argument(s) <code class="docutils literal notranslate"><span class="pre">catkin_lint</span></code> takes, except <code class="docutils literal notranslate"><span class="pre">--explain</span></code> that is set by default. Options can be delimit by space if passing multiple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CC</span></code>/ <code class="docutils literal notranslate"><span class="pre">CXX</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Environment variables to specify the C/C++ compilers. If required, these can be installed by specifying <code class="docutils literal notranslate"><span class="pre">ADDITIONAL_DEBS</span></code>. E.g. <code class="docutils literal notranslate"><span class="pre">ADDITIONAL_DEBS=clang</span> <span class="pre">CC=clang</span> <span class="pre">CXX=clang++</span></code> uses Clang to build the workspaces. Note, these are the regular environment variables - and they work as pass-through in <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code> as well.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CCACHE_DIR</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If set, <a class="reference external" href="https://en.wikipedia.org/wiki/Ccache">ccache</a> gets enabled for your build to speed up the subsequent builds in the same job if anything. See <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/doc/index.rst#cache-build-artifacts-to-speed-up-the-subsequent-builds-if-any">detail.</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CMAKE_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>CMake arguments that get passed to the builder for all workspaces.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CLANG_FORMAT_CHECK</span></code></p></td>
+<td><p>not set. Value range: [<code class="docutils literal notranslate"><span class="pre">&lt;format-style&gt;``|``file</span></code>]</p></td>
+<td><p>If set, run the <a class="reference external" href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a> check. Set the argument to <code class="docutils literal notranslate"><span class="pre">file</span></code> if the style configuration should be loaded from a <code class="docutils literal notranslate"><span class="pre">.clang-format</span></code> file, located in one of the parent directories of the source file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CLANG_FORMAT_VERSION</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Version of clang-format to install and use (relates to both the apt package name as well as the executable), e.g., <code class="docutils literal notranslate"><span class="pre">CLANG_FORMAT_VERSION=3.8</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CLANG_TIDY</span></code></p></td>
+<td><p>not set. Value range: [<code class="docutils literal notranslate"><span class="pre">true``|``pedantic</span></code>]</p></td>
+<td><p>If set, run <a class="reference external" href="https://clang.llvm.org/extra/clang-tidy/">clang.tidy</a> to check the code in all packages and fail in case of errors. If <code class="docutils literal notranslate"><span class="pre">pedantic</span></code>, warnings will be treated as errors as well.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CLANG_TIDY_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Pass additional arguments to <code class="docutils literal notranslate"><span class="pre">clang-tidy</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">CLANG_TIDY_ARGS='-checks=modernize-*'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CLANG_TIDY_BASE_REF</span></code></p></td>
+<td><p>not set.</p></td>
+<td><p>If set, clang-tidy tests will be performed on files only that changed since the given ref. If not set, clang-tidy checks are performed on all files. More info see below.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CLANG_TIDY_JOBS</span></code></p></td>
+<td><p>number of processors</p></td>
+<td><p>Maximum number of parallel jobs that execute <code class="docutils literal notranslate"><span class="pre">clang-tidy</span></code>. The parallel processing is restricted to per build space (=one ROS package, except for <code class="docutils literal notranslate"><span class="pre">BUILDER=catkin_make</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DEBUG_BASH</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If set with any value (e.g. <code class="docutils literal notranslate"><span class="pre">true</span></code>), all executed commands that are not printed by default to reduce print space will be printed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If set, the docker image, which contains the build and test artifacts, will be saved in a Docker image. If unset, the container will not be commited and is removed. The value is used to specify an image name during the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">commit</span></code> command. <em>Note</em> while this allows you to use the resulting docker image with eg. <cite>docker run -it &lt;DOCKER_COMMIT&gt; /bin/bash</cite>, the main intended use is with the <cite>rerun_ci</cite> feature or subsequent <a href="#id1"><span class="problematic" id="id2">`</span></a>industrial_ci`runs, which also manages attaching the required volumes etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT_MSG</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>used to specify a commit during the docker commit command which is triggered by setting <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code>. If unset and if <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code> is set then the commit message will be empty. See more <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOCKER_IMAGE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Selects a Docker images different from default one. Please note, this disables the handling of <code class="docutils literal notranslate"><span class="pre">ROS_REPOSITORY_PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">ROS_DISTRO</span></code> as ROS needs already to be installed in the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DOCKER_PULL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>set to false if custom docker image should not be pulled, e.g. if it was created locally</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOCKER_RUN_OPTS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Used to specify additional run options for Docker.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DOWNSTREAM_CMAKE_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Addtional CMake arguments for downstream <a class="reference external" href="#workspace-management">workspace</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOWNSTREAM_WORKSPACE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Definition of downstream <a class="reference external" href="#workspace-management">workspace</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EXPECT_EXIT_CODE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>exit code must match this value for test to succeed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IMMEDIATE_TEST_OUTPUT</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If true, test output is printed immediately during the tests</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">NOT_TEST_BUILD</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If true, tests in <code class="docutils literal notranslate"><span class="pre">build</span></code> space won’t be run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NOT_TEST_DOWNSTREAM</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>If true, tests in the downstream workspace won’t be run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OS_CODE_NAME</span></code></p></td>
+<td><p>derived from ROS_DISTRO</p></td>
+<td><p>See <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/doc/index.rst#optional-type-of-os-and-distribution">this section for the detail</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OS_NAME</span></code></p></td>
+<td><p>derived from OS_CODE_NAME</p></td>
+<td><p>Possible options: {<code class="docutils literal notranslate"><span class="pre">ubuntu</span></code>, <code class="docutils literal notranslate"><span class="pre">debian</span></code>}. See <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/doc/index.rst#optional-type-of-os-and-distribution">this section for the detail</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PARALLEL_BUILDS</span></code></p></td>
+<td><p>0</p></td>
+<td><p>Sets the number of parallel build jobs among all packages. <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">true</span></code> unsets the limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PARALLEL_TESTS</span></code></p></td>
+<td><p>1</p></td>
+<td><p>Sets the number of parallel test jobs. <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">true</span></code> unsets the limit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Prefix string or directory for the workspaces created during the build job. The upstream, target, and downstream workspaces will be created at <code class="docutils literal notranslate"><span class="pre">$BASEDIR/${PREFIX}&lt;upstream_ws|target_ws|downstream_ws&gt;</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PRERELEASE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, run <a class="reference external" href="http://wiki.ros.org/bloom/Tutorials/PrereleaseTest/">Prerelease Test on docker that emulates ROS buildfarm</a>. The usage of Prerelease Test feature is <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/doc/index.rst#run-ros-prerelease-test">explained more in this section</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PRERELEASE_DOWNSTREAM_DEPTH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>Number of the levels of the package dependencies the Prerelease Test targets at. Range of the level is defined by ROS buildfarm (<a class="reference external" href="http://prerelease.ros.org">http://prerelease.ros.org</a>). NOTE: a job can run exponentially longer for the values greater than <code class="docutils literal notranslate"><span class="pre">0</span></code> depending on how many packages depend on your package (and remember a job on Travis CI can only run for up to 50 minutes).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PRERELEASE_REPONAME</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$TARGET_REPO_NAME</span></code></p></td>
+<td><p>The name of the target of Prerelease Test in rosdistro (that you select at <a class="reference external" href="http://prerelease.ros.org">http://prerelease.ros.org</a>). You can specify this if your repository name differs from the corresponding rosdisto entry. See <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/pull/145/files#r108062114">here</a> for more usage.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROS_REPO</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">testing</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ROS_REPO</span></code> can be used to set <code class="docutils literal notranslate"><span class="pre">ROS_REPOSITORY_PATH</span></code> based on known aliases: <code class="docutils literal notranslate"><span class="pre">ros</span></code>/<code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">ros-shadow-fixed</span></code>/<code class="docutils literal notranslate"><span class="pre">testing</span></code> or <code class="docutils literal notranslate"><span class="pre">building</span></code>. <code class="docutils literal notranslate"><span class="pre">ROS_REPO=false</span></code> disables the repository set-up.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ROS_REPOSITORY_KEY</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Location of ROS’ binary repository key, either as URL, file path or fingerprint.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROS_REPOSITORY_PATH</span></code></p></td>
+<td></td>
+<td><p>Location of ROS’ binary repositories where depended packages get installed from (typically both standard repo (<code class="docutils literal notranslate"><span class="pre">http://packages.ros.org/ros/ubuntu</span></code>) and <a class="reference external" href="http://wiki.ros.org/ShadowRepository">“Shadow-Fixed” repository</a> (<code class="docutils literal notranslate"><span class="pre">http://packages.ros.org/ros-shadow-fixed/ubuntu</span></code>)). Since version 0.3.4, <code class="docutils literal notranslate"><span class="pre">ROS_REPO</span></code> is recommended, and <code class="docutils literal notranslate"><span class="pre">ROS_REPOSITORY_PATH</span></code> is for more intermediate usage only (e.g. to specify your own binary repository (non-standard / in house)). Backward compatibility is preserved.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ROSDEP_SKIP_KEYS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>space-separated list of keys that should get skipped by <code class="docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROSINSTALL_FILENAME</span></code></p></td>
+<td><p>(<em>deprecated</em>, default: <code class="docutils literal notranslate"><span class="pre">.travis.rosinstall</span></code></p></td>
+<td><p>Only used when <code class="docutils literal notranslate"><span class="pre">UPSTREAM_WORKSPACE</span></code> is set to <code class="docutils literal notranslate"><span class="pre">file</span></code>. See <code class="docutils literal notranslate"><span class="pre">UPSTREAM_WORKSPACE</span></code> description.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PYLINT_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>pass command line arguments to <code class="docutils literal notranslate"><span class="pre">pylint</span></code> command (e.g. <code class="docutils literal notranslate"><span class="pre">--output-format=parseable</span> <span class="pre">--errors-only</span></code>) - can e.g. be used to <code class="docutils literal notranslate"><span class="pre">ignore_modules</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PYLINT_CHECK</span></code></p></td>
+<td><p>false</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, run <code class="docutils literal notranslate"><span class="pre">pylint</span></code> checks</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PYLINT_EXCLUDE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>can be used to exclude files via the <code class="docutils literal notranslate"><span class="pre">-not</span> <span class="pre">-path</span></code> filter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_CMAKE_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Addtional CMake arguments for target <a class="reference external" href="#workspace-management">workspace</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_WORKSPACE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$TARGET_REPO_PATH</span></code></p></td>
+<td><p>Definition of sources for target <a class="reference external" href="#workspace-management">workspace</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UNDERLAY</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Path to an install space (instead of <code class="docutils literal notranslate"><span class="pre">/opt/ros/$ROS_DISTRO</span></code>) to be used as an underlay of the workspaces being set up be ICI, e.g. a workspace provided by a custom docker image</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UPSTREAM_CMAKE_ARGS</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Addtional CMake arguments for upstream <a class="reference external" href="#workspace-management">workspace</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UPSTREAM_WORKSPACE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Definition of upstream <a class="reference external" href="#workspace-management">workspace</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VERBOSE_OUTPUT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, build tool (e.g. Catkin) output prints in verbose mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VERBOSE_TESTS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, build tool (e.g. Catkin) output prints in verbose mode during <code class="docutils literal notranslate"><span class="pre">run_tests</span></code> step.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CLANG_TIDY_BASE_REF</strong></p>
+<p>For pull requests, you usually want to (re)test on changed files only. As all CI providers provide corresponding environment variables to recognize a PR, this can be easily configured, e.g. for github actions:</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">push does not check</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">github.base_ref</span> <span class="pre">||</span> <span class="pre">github.ref</span> <span class="pre">}}</span></code></p>
+</dd>
+<dt class="field-even">push performs full check</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">github.base_ref</span> <span class="pre">||</span> <span class="pre">''</span> <span class="pre">}}</span></code></p>
+</dd>
+<dt class="field-odd">manually trigger full check</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">github.event_name</span> <span class="pre">!=</span> <span class="pre">'workflow_dispatch'</span> <span class="pre">&amp;&amp;</span> <span class="pre">(github.base_ref</span> <span class="pre">||</span> <span class="pre">github.ref)</span> <span class="pre">||</span> <span class="pre">''</span> <span class="pre">}}</span></code></p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../getting-started/supported-systems.html" class="btn btn-neutral float-left" title="Supported Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workspace-management.html" class="btn btn-neutral float-right" title="Workspace Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

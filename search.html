@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; ros2_canopen 0.0.1 documentation</title>
+  <title>Search &mdash; industrial_ci  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/collapsible-lists/css/tree_view.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     
   <!--[if lt IE 9]>
@@ -18,8 +16,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-        <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/searchtools.js"></script>
     <script src="_static/language_data.js"></script>
@@ -32,7 +28,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> ros2_canopen
+            <a href="index.html" class="icon icon-home"> industrial_ci
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="#" method="get">
@@ -42,35 +38,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Concepts and Design</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="design-objectives.html">Development Objectives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Bus Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device-manager.html">Device Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system-interface.html">System Interface Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="master.html">Master Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proxy-device.html">Proxy Device Driver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motion-controller.html">Motion Controller Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/supported-systems.html">Supported Systems</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration-package.html">Creating a Configuration Package</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Extension</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="new-driver.html">Creating a new device driver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new-master.html">Creating a new master</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tests and Benchmarks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="alpha-test-description.html">Alpha Tester Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sil-tests.html">Software in the loop Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tested-hardware.html">Tested Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/local-run.html">Running Locally</a></li>
 </ul>
 
         </div>
@@ -79,7 +64,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ros2_canopen</a>
+          <a href="index.html">industrial_ci</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -116,7 +101,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Christoph Hellmann Santos,  Harshavardhan Deshpande.</p>
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

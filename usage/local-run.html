@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running Locally &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Operating System Configuration" href="operating-system.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running Locally</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simplest-way-to-run-locally">Simplest way to run locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-locally-using-travis-config">Run locally using Travis config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-locally-using-github-workflow-config">Run locally using GitHub-Workflow config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recurring-runs-for-debugging">Recurring runs for debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#note-for-rerun-ci-limitations">Note for rerun_ci limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Running Locally</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/local-run.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-locally">
+<h1>Running Locally<a class="headerlink" href="#running-locally" title="Permalink to this headline"></a></h1>
+<p>There are a few ways to run CI jobs locally.</p>
+<section id="simplest-way-to-run-locally">
+<h2>Simplest way to run locally<a class="headerlink" href="#simplest-way-to-run-locally" title="Permalink to this headline"></a></h2>
+<p>Since version 0.3.3, you can run <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code> on your local host. This can be useful e.g. when you want to integrate industrial_ci into your CI server.</p>
+<p>NOTE that this way the CI config (e.g. <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">.gitlab-ci.yml</span></code>) are not used. So whatever configurations you have in your CI configs need to be added manually.</p>
+<p>To do so,</p>
+<ol class="arabic simple" start="0">
+<li><p><a class="reference external" href="https://docs.docker.com/engine/installation/linux/">Install Docker</a></p></li>
+<li><p>Build and install industrial_ci (which is <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingPackage#ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.What_makes_up_a_catkin_Package.3F">a catkin package</a>). Source setting.</p></li>
+<li><p>Change directory to the package you like to test.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">run_ci</span></code> script with your settings.</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/cws/src &amp;&amp; git clone https://github.com/ros-industrial/industrial_ci.git -b master &amp;&amp; cd ~/cws
+$ catkin config --install
+$ catkin b industrial_ci
+$ source install/setup.bash
+$ roscd ros_canopen   (or any package you test)
+$ rosrun industrial_ci run_ci ROS_DISTRO=indigo ROS_REPO=main
+</pre></div>
+</div>
+<p>(ROS_DISTRO could be read from your environment as well)</p>
+</section>
+<section id="run-locally-using-travis-config">
+<h2>Run locally using Travis config<a class="headerlink" href="#run-locally-using-travis-config" title="Permalink to this headline"></a></h2>
+<p>Since v0.6.0, you can run locally using <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> you already defined for your repository, using <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/industrial_ci/scripts/run_travis">industrial_ci/scripts/run_travis script</a>. See the help of that script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">industrial_ci</span> <span class="n">run_travis</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</section>
+<section id="run-locally-using-github-workflow-config">
+<h2>Run locally using GitHub-Workflow config<a class="headerlink" href="#run-locally-using-github-workflow-config" title="Permalink to this headline"></a></h2>
+<p>You can run GitHub actions locally using <a class="reference external" href="https://github.com/nektos/act">act</a>.
+For its installation, follow the <a class="reference external" href="https://github.com/nektos/act#installation">official install instructions</a>.
+Installation in short:</p>
+<ul class="simple">
+<li><p>install docker engine;</p></li>
+<li><p>install <code class="docutils literal notranslate"><span class="pre">act</span></code> using <a class="reference external" href="https://github.com/nektos/act#bash-script">bash script</a> (tested on Ubuntu and its derivatives) or download the <a class="reference external" href="https://github.com/nektos/act/releases">static binaries</a>;</p></li>
+<li><p>When asked about which <code class="docutils literal notranslate"><span class="pre">act</span></code> image you would like to install, choose medium (default choice).</p></li>
+</ul>
+<p>Before running a GH-Action locally, please check that you are using the <cite>industrial_ci</cite> as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- uses: ros-industrial/industrial_ci@master
+  env:
+    ROS_DISTRO: ${{ matrix.ROS_DISTRO }}
+    ROS_REPO: ${{ matrix.ROS_REPO }}
+</pre></div>
+</div>
+<p>Or for more complicated cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- uses: ros-industrial/industrial_ci@master
+    with:
+      config: ${{toJSON(matrix.env)}}
+</pre></div>
+</div>
+<p>Often used configuration is actually not supported by GH (more details in #590)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- uses: ros-industrial/industrial_ci@master
+    env: ${{matrix.env}}
+</pre></div>
+</div>
+<p>After that, go to the package you would like to test and start a workflow using act:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">act</span></code> - execute all workflows</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">act</span> <span class="pre">-l</span></code> - list all defined workflows</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">act</span> <span class="pre">-j</span> <span class="pre">&lt;my_workflow&gt;</span></code> - execute specific workflow</p></li>
+</ul>
+<p>Some useful flags:</p>
+<ul class="simple">
+<li><p>to get more detailed output, use <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag</p></li>
+<li><p>to reuse action containers, use <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag (makes your actions much faster)</p></li>
+<li><p>for everything else check <a class="reference external" href="https://github.com/nektos/act#flags">act flags</a></p></li>
+</ul>
+</section>
+<section id="recurring-runs-for-debugging">
+<h2>Recurring runs for debugging<a class="headerlink" href="#recurring-runs-for-debugging" title="Permalink to this headline"></a></h2>
+<p>Please note that <code class="docutils literal notranslate"><span class="pre">run_ci</span></code> and <code class="docutils literal notranslate"><span class="pre">run_travis</span></code> will download all dependencies every time, just as CI services would do.
+For recurring runs, e.g. in a debugging session, this might not be desired.</p>
+<p>As an alternative <code class="docutils literal notranslate"><span class="pre">rerun_ci</span></code> could be used. It take the same argument as <code class="docutils literal notranslate"><span class="pre">run_ci</span></code> (note for <a class="reference external" href="#note-for-rerun-ci-limitations">some limitations</a>), but will run the build incrementally and only download or compile after changes.</p>
+<p>This results in much faster execution for recurring runs, but has some disadvantages as well:</p>
+<ul class="simple">
+<li><p>The user needs to clean-up manually, an instruction to do so is printed at the end of all runs.</p></li>
+<li><p>All parameters incl. the repository path have to be passed explicitly to allow for proper caching.</p></li>
+<li><p>The apt dependencies won’t get updated in recurring runs.</p></li>
+<li><p>Incremental builds might not work properly for all cases. Especially, it does not help with prerelease tests.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun industrial_ci rerun_ci . ROS_DISTRO=melodic ROS_REPO=main
+</pre></div>
+</div>
+<p>This will run the tests and commit the result to a Docker image <code class="docutils literal notranslate"><span class="pre">industrial-ci/rerun_ci/ros_canopen:$HASH</span></code>.
+The hash is unique for each argument list, so <code class="docutils literal notranslate"><span class="pre">rerun_ci</span> <span class="pre">.</span> <span class="pre">ROS_DISTRO=melodic</span></code> and <code class="docutils literal notranslate"><span class="pre">rerun_ci</span> <span class="pre">.</span> <span class="pre">ROS_DISTRO=kinetic</span></code> do not mix  up.
+However, it will keep consuming disk space with each new combination.</p>
+<p>The cached images can be listed with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun industrial_ci rerun_ci --list
+</pre></div>
+</div>
+<section id="note-for-rerun-ci-limitations">
+<h3>Note for rerun_ci limitations<a class="headerlink" href="#note-for-rerun-ci-limitations" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">rerun_ci</span></code> is managing <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code> and <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT_MSG</span></code> variables under the hood, so if the user set them they will not take effect, unlike <a class="reference external" href="#re-use-the-container-image">normal cases</a>.</p>
+<p>If you are using this feature to have a cached way to run ci locally you probably want your dependencies to be updated just as they are when run on a remote ci service.  To achieve this you can cause the target workspace to be pulled by adding this argument: <code class="docutils literal notranslate"><span class="pre">AFTER_SETUP_TARGET_WORKSPACE='vcs</span> <span class="pre">pull</span> <span class="pre">~/target_ws/src/'</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="operating-system.html" class="btn btn-neutral float-left" title="Operating System Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

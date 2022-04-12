@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Private Repositories Configuration" href="private-repositories.html" />
+    <link rel="prev" title="Workspace Configuration" href="workspace-management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-custom-docker-images">Use custom Docker images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pulling-docker-image-from-an-online-hub">Pulling Docker image from an online hub</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pass-custom-variables-to-docker">Pass custom variables to Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#re-use-the-container-image">Re-use the container image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Docker Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/custom-docker.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docker-configuration">
+<h1>Docker Configuration<a class="headerlink" href="#docker-configuration" title="Permalink to this headline"></a></h1>
+<section id="use-custom-docker-images">
+<h2>Use custom Docker images<a class="headerlink" href="#use-custom-docker-images" title="Permalink to this headline"></a></h2>
+<p>As you see in the <a class="reference external" href="./index.rst#optional-environment-variables">optional variables section</a>, there are a few different ways to
+specify <em>Docker</em> image if you like. Here are some more detail:</p>
+<section id="pulling-docker-image-from-an-online-hub">
+<h3>Pulling Docker image from an online hub<a class="headerlink" href="#pulling-docker-image-from-an-online-hub" title="Permalink to this headline"></a></h3>
+<p>You can pull any <em>Docker</em> image by specifying in <code class="docutils literal notranslate"><span class="pre">DOCKER_IMAGE</span></code> variable.
+If your <em>Docker</em> image is ROS-based, you can omit <code class="docutils literal notranslate"><span class="pre">ROS_DISTRO</span></code> as long as the Dockerfile sets this environment variable (<code class="docutils literal notranslate"><span class="pre">ENV</span> <span class="pre">ROS_DISTRO</span></code>).
+However, <code class="docutils literal notranslate"><span class="pre">ROS_REPO</span></code> (or non-recommended <code class="docutils literal notranslate"><span class="pre">ROS_REPOSITORY_PATH</span></code>), and <code class="docutils literal notranslate"><span class="pre">ROS_DISTRO</span></code> can still be used to modify the target container.</p>
+<p>Please note that the entrypoint and command of the image will get ignored.</p>
+</section>
+</section>
+<section id="pass-custom-variables-to-docker">
+<h2>Pass custom variables to Docker<a class="headerlink" href="#pass-custom-variables-to-docker" title="Permalink to this headline"></a></h2>
+<p>On CI platform usually some variables are available for the convenience. Since all checks using <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code> are NOT running directly on
+the operating system running on CI, but instead running on <em>Docker</em> where those variables are not defined, dozens of them are already passed
+for you (you can see <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/industrial_ci/src/docker.env">the list of those variables</a>).</p>
+<p>Still, you may want to pass some other vars. <code class="docutils literal notranslate"><span class="pre">DOCKER_RUN_OPTS='-e</span> <span class="pre">MY_VARIABLE_VALUE'</span></code> should do the trick.
+You can even set it to a specific value: <code class="docutils literal notranslate"><span class="pre">DOCKER_RUN_OPTS='-e</span> <span class="pre">MY_VARIABLE_VALUE=42'</span></code> (format varies per CI platform. These are Gitlab CI example).</p>
+</section>
+<section id="re-use-the-container-image">
+<h2>Re-use the container image<a class="headerlink" href="#re-use-the-container-image" title="Permalink to this headline"></a></h2>
+<p>NOTE: This is still experimental.</p>
+<p><code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code> builds a <em>Docker</em> image using the associated repository on the specified operating system per every job. While the built Docker container is thrown away once the job finishes by default, there’s a way to access the built image post job so that you can re-use it.</p>
+<p>To do so, simply set <code class="docutils literal notranslate"><span class="pre">DOCKER_COMMIT</span></code> the name of the image of your choice. Then you’ll be able to access that image. For example in your CI config (e.g. <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code>), add something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variables:
+    DOCKER_COMMIT=registry.gitlab.com/your-org/your-repo:your_img
+:
+script:
+    - docker push $DOCKER_COMMIT
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workspace-management.html" class="btn btn-neutral float-left" title="Workspace Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="private-repositories.html" class="btn btn-neutral float-right" title="Private Repositories Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

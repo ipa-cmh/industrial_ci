@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workspace Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Docker Configuration" href="custom-docker.html" />
+    <link rel="prev" title="General Configuration" href="configurable-variables.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workspace Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workspace-definition">Workspace definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Workspace Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/workspace-management.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="workspace-configuration">
+<h1>Workspace Configuration<a class="headerlink" href="#workspace-configuration" title="Permalink to this headline"></a></h1>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline"></a></h2>
+<p>The default test will just build the packages in the target repository and optionally run the contained tests.
+This behavior can be expanded with addtional workspaces</p>
+<ol class="upperalpha simple">
+<li><p>Upstream workspace: Source packages that are needed for building or testing the target or downstream packages</p>
+<ol class="arabic simple">
+<li><p>Fetch source code (<code class="docutils literal notranslate"><span class="pre">UPSTREAM_WORKSPACE</span></code>)</p></li>
+<li><p>Install dependencies with <code class="docutils literal notranslate"><span class="pre">rosdep</span></code></p></li>
+<li><p>Build workspace <code class="docutils literal notranslate"><span class="pre">$BASEDIR/${PREFIX}upstream_ws</span></code>, chained to /opt/ros (or <code class="docutils literal notranslate"><span class="pre">UNDERLAY</span></code>)</p></li>
+</ol>
+</li>
+<li><p>Target workspace: Packages in your target repository that should get build and tested</p>
+<ol class="arabic simple">
+<li><p>Fetch source code (<code class="docutils literal notranslate"><span class="pre">TARGET_WORKSPACE</span></code>)</p></li>
+<li><p>Install dependencies with <code class="docutils literal notranslate"><span class="pre">rosdep</span></code></p></li>
+<li><p>Build workspace <code class="docutils literal notranslate"><span class="pre">$BASEDIR/${PREFIX}target_ws</span></code>, chained to upstream workspace or /opt/ros (or <code class="docutils literal notranslate"><span class="pre">UNDERLAY</span></code>)</p></li>
+<li><p>run tests (opt-out with <code class="docutils literal notranslate"><span class="pre">NOT_TEST_BUILD</span></code>)</p></li>
+</ol>
+</li>
+<li><p>Downstream workspace: Packages that should get tested against your target repository</p>
+<ol class="arabic simple">
+<li><p>Fetch source code (<code class="docutils literal notranslate"><span class="pre">DOWNSTREAM_WORKSPACE</span></code>)</p></li>
+<li><p>Install dependencies with rosdep</p></li>
+<li><p>Build workspace <code class="docutils literal notranslate"><span class="pre">$BASEDIR/${PREFIX}downstream_ws</span></code>, chained to target workspace</p></li>
+<li><p>run tests (opt-out with <code class="docutils literal notranslate"><span class="pre">NOT_TEST_DOWNSTREAM</span></code>)</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="workspace-definition">
+<h2>Workspace definition<a class="headerlink" href="#workspace-definition" title="Permalink to this headline"></a></h2>
+<p>Each workspace can be composed as a sequence of the following items:</p>
+<ul>
+<li><p>URL of a source repository with the pattern <code class="docutils literal notranslate"><span class="pre">&lt;scheme&gt;:&lt;resource&gt;#&lt;version&gt;</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">github:ros-industrial/industrial_ci#master</span></code>.
+Supported scheme are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">github</span></code> for GitHub repositories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gitlab</span></code> for Gitlab repositories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bitbucket</span></code> for Bitbucket repositories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span></code>/<code class="docutils literal notranslate"><span class="pre">git+*</span></code>: for any other git repository</p></li>
+</ul>
+<p>Please note that a version is mandatory. If you really want to use the default branch, which is error-prone and therefore not recommended, you can set it to <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>.</p>
+</li>
+<li><p>URL (=starts with http or https) of a <code class="docutils literal notranslate"><span class="pre">*.repos</span></code> or <code class="docutils literal notranslate"><span class="pre">*.rosinstall</span></code> file</p></li>
+<li><p>relative path of a <code class="docutils literal notranslate"><span class="pre">*.repos</span></code> or <code class="docutils literal notranslate"><span class="pre">*.rosinstall</span></code> file</p></li>
+<li><p>(relative) directory path to a source directory</p></li>
+<li><p>directory path prefixed with <code class="docutils literal notranslate"><span class="pre">-</span></code> to remove the directory, as a path relative to either the source space or the target repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> to copy the full target repository</p></li>
+</ul>
+<p>For backwards compatibility, <code class="docutils literal notranslate"><span class="pre">UPSTREAM_WORKSPACE</span></code> can be set to <code class="docutils literal notranslate"><span class="pre">debian</span></code> and <code class="docutils literal notranslate"><span class="pre">file</span></code> as well, but not in combination with the other options and with a deprecation warning.
+In case of <code class="docutils literal notranslate"><span class="pre">file</span></code>, it will be replaced by <code class="docutils literal notranslate"><span class="pre">$ROSINSTALL_FILENAME</span></code> or <code class="docutils literal notranslate"><span class="pre">$ROSINSTALL_FILENAME.$ROS_DISTRO</span></code>, if the latter exists.
+<strong>In “file” mode the target repository will not get removed automatically anymore and therefore might get built twice!</strong></p>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<p>To depend on a different GitHub repository, e.g. ros_control:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPSTREAM_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;github:ros-controls/ros_control#melodic-devel&#39;</span>
+</pre></div>
+</div>
+<p>To depend on a different GitHub repository, e.g. ros_control, but only a subset of it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPSTREAM_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;github:ros-controls/ros_control#melodic-devel -rqt_controller_manager&#39;</span>
+</pre></div>
+</div>
+<p><strong>This does not remove the package, but the entire folder</strong></p>
+<p>To depend on a remote rosinstall file instead, but still without <code class="docutils literal notranslate"><span class="pre">rqt_controller_manager</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPSTREAM_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/ros-controls/ros_control/melodic-devel/ros_control.rosinstall -ros_control/rqt_controller_manager&#39;</span>
+</pre></div>
+</div>
+<p>Or to use a local copy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPSTREAM_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;ros_control.rosinstall&#39;</span>
+</pre></div>
+</div>
+<p>Works with (remote) <code class="docutils literal notranslate"><span class="pre">*.repos</span></code> as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPSTREAM_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/ros2/turtlebot2_demo/master/turtlebot2_demo.repos&#39;</span>
+</pre></div>
+</div>
+<p>Or mixed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DOWNSTREAM_WORKSPACE</span><span class="o">=</span><span class="s2">&quot;github:ros-simulation/gazebo_ros_pkgs#melodic-devel https://raw.githubusercontent.com/ros-controls/ros_control/melodic-devel/ros_control.rosinstall -ros_control additional.repos&quot;</span>
+</pre></div>
+</div>
+<p>To depend on a different repository of a private server using git and the SSH protocol:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPSTREAM_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;git+ssh://git@private.server.net/repository#branch&#39;</span>
+</pre></div>
+</div>
+<p>To filter the target workspace:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TARGET_WORKSPACE</span><span class="o">=</span><span class="s1">&#39;. -broken_package_path&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configurable-variables.html" class="btn btn-neutral float-left" title="General Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="custom-docker.html" class="btn btn-neutral float-right" title="Docker Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

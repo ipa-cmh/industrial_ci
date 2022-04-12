@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-release Test Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ABI Check Configuration" href="abi-checks.html" />
+    <link rel="prev" title="Private Repositories Configuration" href="private-repositories.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pre-release Test Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workaround-don-t-want-to-always-run-prerelease-test">(Workaround) Don’t want to always run Prerelease Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Pre-release Test Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/prerelease-tests.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pre-release-test-configuration">
+<h1>Pre-release Test Configuration<a class="headerlink" href="#pre-release-test-configuration" title="Permalink to this headline"></a></h1>
+<p>Running <a class="reference external" href="http://wiki.ros.org/bloom/Tutorials/PrereleaseTest/">docker-based ROS Prerelease Test</a> is strongly recommended when you make a release. There are, however, some inconvenience (requires host computer setup, runs on your local host, etc. Detail discussed in <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/pull/35#issue-150581346">a ticket</a>). <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code> provides a way to run it on your CI.</p>
+<p>To do so, add a single line to your <a class="reference external" href="#terminology">CI config</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">indigo</span> <span class="n">PRERELEASE</span><span class="o">=</span><span class="n">true</span>
+</pre></div>
+</div>
+<p>Or with more configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">indigo</span> <span class="n">PRERELEASE</span><span class="o">=</span><span class="n">true</span> <span class="n">PRERELEASE_REPONAME</span><span class="o">=</span><span class="n">industrial_core</span> <span class="n">PRERELEASE_DOWNSTREAM_DEPTH</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>In addition to the downstream packages from ROS distro, you can specify <code class="docutils literal notranslate"><span class="pre">UPSTREAM_WORKSPACE</span></code> and <code class="docutils literal notranslate"><span class="pre">DOWNSTREAM_WORKSPACE</span></code> as well.</p>
+<p>NOTE: A job that runs Prerelease Test does not run the checks that are defined in <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/travis.sh">travis.sh</a>. To run both, use <code class="docutils literal notranslate"><span class="pre">matrix</span></code> in <a class="reference external" href="#terminology">CI config</a>.</p>
+<p>See the usage sample in <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/.travis.yml">.travis in industrial_ci repository</a>.</p>
+<p>The following is some tips to be shared for running Prerelease Test on CI using <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code>.</p>
+<section id="workaround-don-t-want-to-always-run-prerelease-test">
+<h2>(Workaround) Don’t want to always run Prerelease Test<a class="headerlink" href="#workaround-don-t-want-to-always-run-prerelease-test" title="Permalink to this headline"></a></h2>
+<p>The jobs that run Prerelease Test may usually take longer than the tests defined in <a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/travis.sh">travis.sh</a>, which can result in longer time for the entire CI jobs to finish. This is usually okay, as developers who are concerned with PRs might not wait for the CI result that eagerly (besides that, most CI servers limit the maximum run time as 50 minutes so there can’t be very long run). If you’re concerned, however, then you may want to separately run the Prerelease Test. An example way to do this is to create a branch specifically for Prerelease Test where <a class="reference external" href="#terminology">CI config</a> only defines a check entry with <code class="docutils literal notranslate"><span class="pre">PRERELEASE</span></code> turned on. E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span>
+<span class="n">env</span><span class="p">:</span>
+  <span class="n">matrix</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">indigo</span> <span class="n">PRERELEASE</span><span class="o">=</span><span class="n">true</span>
+<span class="p">:</span>
+</pre></div>
+</div>
+<p>Then open a pull request using this branch against the branch that the change is subject to be merged. You do not want to actually merge this branch no matter what the CI result is. This branch is solely for Prerelease Test purpose.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="private-repositories.html" class="btn btn-neutral float-left" title="Private Repositories Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="abi-checks.html" class="btn btn-neutral float-right" title="ABI Check Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

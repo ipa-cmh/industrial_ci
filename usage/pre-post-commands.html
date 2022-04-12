@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre/post Command Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Operating System Configuration" href="operating-system.html" />
+    <link rel="prev" title="Cache Configuration" href="caching.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pre/post Command Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#customize-within-the-ci-process">Customize within the CI process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customize-outside-of-the-ci-process">Customize outside of the CI process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Pre/post Command Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/pre-post-commands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pre-post-command-configuration">
+<h1>Pre/post Command Configuration<a class="headerlink" href="#pre-post-command-configuration" title="Permalink to this headline"></a></h1>
+<p>You may want to add custom steps prior/subsequent to the setup defined in <code class="docutils literal notranslate"><span class="pre">industrial_ci</span></code>. Example usecases:</p>
+<ul class="simple">
+<li><p>A device driver package X in your repository or in your repository’s dependency requires a prorietary library installed. This library is publicly available, but not via apt or any package management system and thus the only way you can install it is in a classic way (unzip, run installer etc.) (<a class="reference external" href="https://github.com/ros-industrial/industrial_ci/issues/14">More discussion</a>).</p></li>
+<li><p>You want to run <code class="docutils literal notranslate"><span class="pre">ros_lint</span></code> (<a class="reference external" href="https://github.com/ros-industrial/industrial_ci/issues/58#issuecomment-223601916">this discussion</a> may be of your interest).</p></li>
+</ul>
+<section id="customize-within-the-ci-process">
+<h2>Customize within the CI process<a class="headerlink" href="#customize-within-the-ci-process" title="Permalink to this headline"></a></h2>
+<p>If what you want to customize is within the <a class="reference external" href="#what-are-checked">CI process</a>, you can specify the script(s) in <code class="docutils literal notranslate"><span class="pre">BEFORE_*</span></code> and/or <code class="docutils literal notranslate"><span class="pre">AFTER_*</span></code> variables.
+The variables can be set for all functions, using the upper-case name, e.g. to run a script before <code class="docutils literal notranslate"><span class="pre">install_target_dependencies</span></code> you can specify <code class="docutils literal notranslate"><span class="pre">BEFORE_INSTALL_TARGET_DEPENDENCIES</span></code> or <code class="docutils literal notranslate"><span class="pre">AFTER_INSTALL_TARGET_DEPENDENCIES</span></code> to be run afterrwards.
+<code class="docutils literal notranslate"><span class="pre">BEFORE_INIT</span></code> will be run before anything else, <code class="docutils literal notranslate"><span class="pre">AFTER_SCRIPT</span></code> can be used to specify as script to be run after all successful tests.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="p">:</span>
+  <span class="k">global</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">BEFORE_INIT</span><span class="o">=</span><span class="s1">&#39;./your_custom_PREprocess.sh&#39;</span>
+    <span class="o">-</span> <span class="n">AFTER_SCRIPT</span><span class="o">=</span><span class="s1">&#39;./your_custom_POSTprocess.sh&#39;</span>
+<span class="n">script</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">ci</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Multiple commands can be passed, as in a general <code class="docutils literal notranslate"><span class="pre">bash</span></code> manner.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">BEFORE_INIT</span><span class="o">=</span><span class="s1">&#39;ls /tmp/1 &amp;&amp; ls /tmp/2 || ls /tmp/3&#39;</span>
+</pre></div>
+</div>
+<p>Multiple commands are easier to be handled if they are put into a dedicated script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">BEFORE_INIT</span><span class="o">=</span><span class="s1">&#39;./my_before_script.sh&#39;</span>
+</pre></div>
+</div>
+<p>NOTE: In general the scripts are run as root in a Docker container. If you configure a different (base) Docker image, the user could be changed to non-root. But since we need to install packages the (base) image should set-up <code class="docutils literal notranslate"><span class="pre">sudo</span></code> for this user.</p>
+<p>The hooks will get run without a ROS environment (<code class="docutils literal notranslate"><span class="pre">setup.bash</span></code>).
+If you need this environment, you can use the <code class="docutils literal notranslate"><span class="pre">rosenv</span></code> helper.
+Optionally, it takes a command to be executed.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AFTER_SETUP_UPSTREAM_WORKSPACE='rosenv</span> <span class="pre">&amp;&amp;</span> <span class="pre">echo</span> <span class="pre">&quot;$ROS_DISTRO'&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AFTER_SETUP_UPSTREAM_WORKSPACE='rosenv</span> <span class="pre">./my_script.sh'</span></code></p></li>
+</ul>
+<p>Furthermore, these  hooks scripts are run in a sub-shell and cannot change the build environment.
+If a dependency needs to extend the build environment, the <cite>*_EMBED</cite> script can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">AFTER_INIT</span><span class="o">=</span><span class="s1">&#39;./your_custom_PREprocess.sh&#39;</span>
+<span class="o">-</span> <span class="n">AFTER_INIT_EMBED</span><span class="o">=</span><span class="s1">&#39;source /opt/dependency/prepare_environment.sh&#39;</span>
+</pre></div>
+</div>
+<p><strong>rosenv cannot be used in *_EMBED hooks!</strong></p>
+<p>Per default all scripts are run with unset variables disabled in bash.
+It is possible to opt-out for an individual command by prefixing it with <cite>ici_with_unset_variables</cite>.</p>
+</section>
+<section id="customize-outside-of-the-ci-process">
+<h2>Customize outside of the CI process<a class="headerlink" href="#customize-outside-of-the-ci-process" title="Permalink to this headline"></a></h2>
+<p>As <a class="reference external" href="#use-custom-docker-images">explained in Docker’s usage</a> section, <a class="reference external" href="#what-are-checked">main CI processes of industrial_ci</a> run on <em>Docker</em>. There may be situations where you want to run additional processes before or after the main pipeline. This could be particularly the case when you’d like to take advantage of CI’s native resources (e.g. environment variables your CI platform defines) more easily.</p>
+<p>You can add your own commands before/after the main processes as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">script</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">./</span><span class="n">your_non</span><span class="o">-</span><span class="n">docker_before</span><span class="o">.</span><span class="n">sh</span>  <span class="o">&lt;--</span> <span class="n">Runs</span> <span class="n">on</span> <span class="n">CI</span> <span class="n">server</span> <span class="n">natively</span><span class="o">.</span>
+  <span class="o">-</span> <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">ci</span><span class="o">.</span><span class="n">sh</span>             <span class="o">&lt;--</span> <span class="n">Runs</span> <span class="n">on</span> <span class="n">Docker</span> <span class="n">on</span> <span class="n">CI</span> <span class="n">server</span><span class="o">.</span>
+  <span class="o">-</span> <span class="o">./</span><span class="n">your_non</span><span class="o">-</span><span class="n">docker_after</span><span class="o">.</span><span class="n">sh</span>   <span class="o">&lt;--</span> <span class="n">Runs</span> <span class="n">on</span> <span class="n">CI</span> <span class="n">server</span> <span class="n">natively</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>NOTE. CI native env vars can be sent to Docker (see <a class="reference external" href="#pass-custom-variables-to-docker">this section</a>). The example above is useful e.g. when you have many variables to deal with. Anyways, both ways are valid.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="caching.html" class="btn btn-neutral float-left" title="Cache Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="operating-system.html" class="btn btn-neutral float-right" title="Operating System Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

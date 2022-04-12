@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Supported Systems" href="supported-systems.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-travis-ci">For Travis CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-gitlab-ci">For Gitlab CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-bitbucket-pipelines">For Bitbucket Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-github-actions">For GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-google-cloud-build">For Google Cloud Build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
+<p>With a few steps, you can start in your client repository using CI confiurations stored in <cite>industrial_ci</cite>.</p>
+<section id="for-travis-ci">
+<h2>For Travis CI<a class="headerlink" href="#for-travis-ci" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Activate CI for your github repository on <a class="reference external" href="https://travis-ci.com/">Travis CI</a>).</p>
+<ol class="loweralpha simple">
+<li><p>You may do so either at <a class="reference external" href="https://travis-ci.com/github/YOUR_GITHUB_ORGANIZATION">https://travis-ci.com/github/YOUR_GITHUB_ORGANIZATION</a> or at <a class="reference external" href="https://travis-ci.com/github/YOUR_GITHUB_USER">https://travis-ci.com/github/YOUR_GITHUB_USER</a> (depending on where your repository sits).</p></li>
+<li><p>Activate CI beta for your bitbucket repository is similar, but the target link that your status badge directs to needs to be modified from <a class="reference external" href="https://travis-ci.com/USERNAME/REPO_NAME">https://travis-ci.com/USERNAME/REPO_NAME</a> to <a class="reference external" href="https://travis-ci.com/bitbucket/USERNAME/REPO_NAME">https://travis-ci.com/bitbucket/USERNAME/REPO_NAME</a>. By default, the generated link directs to a github repository.</p></li>
+</ol>
+</li>
+<li><p>Add <cite>.travis.yml</cite> file to your repository root (<a class="reference external" href="https://github.com/ros-industrial/industrial_ci/blob/master/doc/.travis.yml">complete template</a>):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">language</span><span class="p">:</span> <span class="n">generic</span>
+<span class="n">services</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">docker</span>
+
+<span class="n">env</span><span class="p">:</span>
+  <span class="n">matrix</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">ROS_DISTRO</span><span class="o">=</span><span class="s2">&quot;indigo&quot;</span>
+
+<span class="n">install</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="o">--</span><span class="n">depth</span> <span class="mi">1</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">industrial</span><span class="o">/</span><span class="n">industrial_ci</span><span class="o">.</span><span class="n">git</span> <span class="o">.</span><span class="n">industrial_ci</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span>
+<span class="n">script</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">travis</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Note: The name <cite>.industrial_ci</cite> is NO longer REQUIRED for the cloned folder starting version 0.3.2; you can pick any name (recommended practice to keep the folder hidden (by prepending “.”).</p></li>
+</ul>
+</section>
+<section id="for-gitlab-ci">
+<h2>For Gitlab CI<a class="headerlink" href="#for-gitlab-ci" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Enable CI for your repo. Please refer to <a class="reference external" href="https://docs.gitlab.com/ee/ci/quick_start/">official doc</a> for the steps to do so. Note for Gitlab CI, necessary steps might be different between hosted version (i.e. the one on gitlab.com) v.s. the one on your own server, which Gitlab doesn’t always clarify in its documentation.</p>
+<ol class="arabic simple">
+<li><p>For your server version, enable a runner for your Gitlab project which uses the Docker executor. See instructions on how to <a class="reference external" href="https://docs.gitlab.com/runner/install/index.html">install</a> and <a class="reference external" href="https://docs.gitlab.com/runner/register/index.html">register</a> such a runner with your Gitlab instance if you haven’t done so yet.</p></li>
+</ol>
+</li>
+<li><p>In <cite>.gitlab-ci.yml</cite> file in your client repo, add the following minimal configuration (this snippet can be the entire content of the file), replacing indigo for your chosen distro:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">:</span> <span class="n">docker</span><span class="p">:</span><span class="n">git</span>
+<span class="n">services</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">docker</span><span class="p">:</span><span class="n">dind</span>
+<span class="n">before_script</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">apk</span> <span class="n">add</span> <span class="o">--</span><span class="n">update</span> <span class="n">bash</span> <span class="n">coreutils</span> <span class="n">tar</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="o">--</span><span class="n">depth</span> <span class="mi">1</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">industrial</span><span class="o">/</span><span class="n">industrial_ci</span> <span class="o">.</span><span class="n">industrial_ci</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span>
+<span class="n">indigo</span><span class="p">:</span>
+  <span class="n">script</span><span class="p">:</span> <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">gitlab</span><span class="o">.</span><span class="n">sh</span> <span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">indigo</span>
+</pre></div>
+</div>
+</section>
+<section id="for-bitbucket-pipelines">
+<h2>For Bitbucket Pipelines<a class="headerlink" href="#for-bitbucket-pipelines" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Enable CI for your repo. Please refer to <a class="reference external" href="https://confluence.atlassian.com/bitbucket/get-started-with-bitbucket-pipelines-792298921.html">official doc</a> for the steps to do so.</p></li>
+<li><p>In the <cite>bitbucket-pipelines.yml</cite> file in your client repo, add the following minimal configuration (this snippet can be the entire content of the file), replacing indigo for your chosen distro:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">:</span> <span class="n">docker</span><span class="p">:</span><span class="n">git</span>
+
+<span class="n">pipelines</span><span class="p">:</span>
+  <span class="n">default</span><span class="p">:</span>
+     <span class="o">-</span> <span class="n">step</span><span class="p">:</span>
+         <span class="n">services</span><span class="p">:</span>
+           <span class="o">-</span> <span class="n">docker</span>
+         <span class="n">script</span><span class="p">:</span>
+           <span class="o">-</span> <span class="n">apk</span> <span class="n">add</span> <span class="o">--</span><span class="n">update</span> <span class="n">bash</span> <span class="n">coreutils</span> <span class="n">tar</span>
+           <span class="o">-</span> <span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="o">--</span><span class="n">depth</span> <span class="mi">1</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">industrial</span><span class="o">/</span><span class="n">industrial_ci</span> <span class="o">.</span><span class="n">industrial_ci</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span>
+           <span class="o">-</span> <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">sh</span> <span class="n">ROS_DISTRO</span><span class="o">=</span><span class="n">indigo</span>
+
+<span class="n">definitions</span><span class="p">:</span>
+  <span class="n">services</span><span class="p">:</span>
+    <span class="n">docker</span><span class="p">:</span>
+      <span class="n">memory</span><span class="p">:</span> <span class="mi">2048</span>
+</pre></div>
+</div>
+</section>
+<section id="for-github-actions">
+<h2>For GitHub Actions<a class="headerlink" href="#for-github-actions" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Create <cite>.github/workflows/industrial_ci_action.yml</cite> (industrial_ci_action.yml is arbitrary, <a class="reference external" href="doc/industrial_ci_action.yml">complete template</a>)  with the following configuration, (this snippet can be the entire content of the file), replacing melodic for your chosen distro:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name: CI
+
+on: [push, pull_request]
+
+jobs:
+  industrial_ci:
+    strategy:
+      matrix:
+        env:
+          - {ROS_DISTRO: melodic, ROS_REPO: testing}
+          - {ROS_DISTRO: melodic, ROS_REPO: main}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: &#39;ros-industrial/industrial_ci@master&#39;
+        env: ${{matrix.env}}
+</pre></div>
+</div>
+</section>
+<section id="for-google-cloud-build">
+<h2>For Google Cloud Build<a class="headerlink" href="#for-google-cloud-build" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Connect your source code repository to your Google Cloud Project. Please refer to the <a class="reference external" href="https://cloud.google.com/build/docs/automating-builds/create-manage-triggers#gcloud">official documentation</a> for the steps to do so.</p></li>
+<li><p>In the <cite>cloudbuild.yaml</cite> file in your client repo, add the following minimal configuration</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;ros:melodic&#39;</span>
+    <span class="n">entrypoint</span><span class="p">:</span> <span class="s1">&#39;bash&#39;</span>
+    <span class="n">args</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s1">&#39;-c&#39;</span>
+      <span class="o">-</span> <span class="o">|-</span>
+        <span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">depth</span> <span class="mi">1</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">industrial</span><span class="o">/</span><span class="n">industrial_ci</span> <span class="o">.</span><span class="n">industrial_ci</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span>
+        <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">ci</span><span class="o">.</span><span class="n">sh</span>
+    <span class="n">env</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s1">&#39;ISOLATION=shell&#39;</span>
+      <span class="o">-</span> <span class="s1">&#39;CI=true&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="supported-systems.html" class="btn btn-neutral float-right" title="Supported Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

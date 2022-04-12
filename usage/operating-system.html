@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operating System Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Locally" href="local-run.html" />
+    <link rel="prev" title="Pre/post Command Configuration" href="pre-post-commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Operating System Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu-and-its-distro-are-guessed-by-default-from-ros-distro">Ubuntu and its distro are guessed by default from ROS_DISTRO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-non-default-ubuntu-distro">Use non-default Ubuntu distro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-debian">Use Debian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#all-combinations-available-of-os-and-distros">All combinations available of OS and distros</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Operating System Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/operating-system.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="operating-system-configuration">
+<h1>Operating System Configuration<a class="headerlink" href="#operating-system-configuration" title="Permalink to this headline"></a></h1>
+<p><em>deprecated??</em></p>
+<section id="ubuntu-and-its-distro-are-guessed-by-default-from-ros-distro">
+<h2>Ubuntu and its distro are guessed by default from ROS_DISTRO<a class="headerlink" href="#ubuntu-and-its-distro-are-guessed-by-default-from-ros-distro" title="Permalink to this headline"></a></h2>
+<p>You can specify the OS and its distribution to run the CI job by setting <code class="docutils literal notranslate"><span class="pre">OS_NAME</span></code> and <code class="docutils literal notranslate"><span class="pre">OS_CODE_NAME</span></code>.
+By default users don’t need to set this and its value will be automatically guessed according to the value of <code class="docutils literal notranslate"><span class="pre">ROS_DISTRO</span></code>. e.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ROS_DISTRO=indigo</span></code>  –&gt; <code class="docutils literal notranslate"><span class="pre">OS_NAME=ubuntu</span> <span class="pre">OS_CODE_NAME=trusty</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROS_DISTRO=kinetic</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">OS_NAME=ubuntu</span> <span class="pre">OS_CODE_NAME=xenial</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROS_DISTRO=lunar</span></code>   –&gt; <code class="docutils literal notranslate"><span class="pre">OS_NAME=ubuntu</span> <span class="pre">OS_CODE_NAME=xenial</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROS_DISTRO=melodic</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">OS_NAME=ubuntu</span> <span class="pre">OS_CODE_NAME=bionic</span></code></p></li>
+</ul>
+</section>
+<section id="use-non-default-ubuntu-distro">
+<h2>Use non-default Ubuntu distro<a class="headerlink" href="#use-non-default-ubuntu-distro" title="Permalink to this headline"></a></h2>
+<p>E.g. <code class="docutils literal notranslate"><span class="pre">OS_CODE_NAME=yakkety</span></code> or <code class="docutils literal notranslate"><span class="pre">zesty</span></code> for ROS Lunar are available.</p>
+</section>
+<section id="use-debian">
+<h2>Use Debian<a class="headerlink" href="#use-debian" title="Permalink to this headline"></a></h2>
+<p>E.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OS_CODE_NAME=jessie</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OS_CODE_NAME=stretch</span></code></p></li>
+</ul>
+</section>
+<section id="all-combinations-available-of-os-and-distros">
+<h2>All combinations available of OS and distros<a class="headerlink" href="#all-combinations-available-of-os-and-distros" title="Permalink to this headline"></a></h2>
+<p>Possible combination of <code class="docutils literal notranslate"><span class="pre">OS_NAME</span></code> and <code class="docutils literal notranslate"><span class="pre">OS_CODE_NAME</span></code> depend on available Docker images. See <a class="reference external" href="https://github.com/ros-industrial/docker/tree/master/ci">ros-industrial/docker/ci</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pre-post-commands.html" class="btn btn-neutral float-left" title="Pre/post Command Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="local-run.html" class="btn btn-neutral float-right" title="Running Locally" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

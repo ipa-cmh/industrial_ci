@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Repositories Configuration &mdash; industrial_ci  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pre-release Test Configuration" href="prerelease-tests.html" />
+    <link rel="prev" title="Docker Configuration" href="custom-docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> industrial_ci
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/supported-systems.html">Supported Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Private Repositories Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gitlab-ci">Gitlab CI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-run.html">Running Locally</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">industrial_ci</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Private Repositories Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/private-repositories.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="private-repositories-configuration">
+<h1>Private Repositories Configuration<a class="headerlink" href="#private-repositories-configuration" title="Permalink to this headline"></a></h1>
+<section id="gitlab-ci">
+<h2>Gitlab CI<a class="headerlink" href="#gitlab-ci" title="Permalink to this headline"></a></h2>
+<p>If your Gitlab CI jobs require access to private repos, additional settings are needed both on:</p>
+<ul class="simple">
+<li><p>Your repo: Add ssh private keys in the CI settings.</p></li>
+<li><p>The private repos the CI jobs access: Matching public keys must be set as <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">Key</span></code>.</p></li>
+</ul>
+<ol class="arabic">
+<li><p>If you haven’t done so, create SSH key pair (<a class="reference external" href="https://docs.gitlab.com/ce/ssh/README.html#generating-a-new-ssh-key-pair">reference on gitlab.com</a>).</p></li>
+<li><p>Navigate to “Settings &gt; CI/CD” in your repo.</p></li>
+<li><p>Expand “<code class="docutils literal notranslate"><span class="pre">Secret</span> <span class="pre">variables</span></code>” section.</p></li>
+<li><p>In “Add a variable” section, fill in the following text field/area.</p>
+<ol class="arabic simple">
+<li><p><strong>Key</strong>: <code class="docutils literal notranslate"><span class="pre">SSH_PRIVATE_KEY</span></code></p></li>
+<li><p><strong>Value</strong>: Copy paste the entire content of your private key file.</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Include the header and footer, i.e.  <code class="docutils literal notranslate"><span class="pre">-----BEGIN/END</span> <span class="pre">RSA</span> <span class="pre">PRIVATE</span> <span class="pre">KEY-----</span></code>.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>In “Add a variable” section again, fill in the following text field/area.</p>
+<ol class="arabic simple">
+<li><p><strong>Key</strong>: <code class="docutils literal notranslate"><span class="pre">SSH_SERVER_HOSTKEYS</span></code></p></li>
+<li><p><strong>Value</strong>: Copy paste the entire line of the following: On your Linux computer, run <code class="docutils literal notranslate"><span class="pre">ssh-keyscan</span> <span class="pre">gitlab.com</span></code>. You should get a hash key entry/ies. Copy the entire line that is NOT commented out. For example, the author gets the following, and copied the 2nd line (, which may render as separate lines on your web browser, but it’s a long single line):</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># gitlab.com:22 SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2</span>
+<span class="n">gitlab</span><span class="o">.</span><span class="n">com</span> <span class="n">ssh</span><span class="o">-</span><span class="n">rsa</span> <span class="n">RandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequence</span>
+<span class="c1"># gitlab.com:22 SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2</span>
+<span class="n">gitlab</span><span class="o">.</span><span class="n">com</span> <span class="n">ecdsa</span><span class="o">-</span><span class="n">sha2</span><span class="o">-</span><span class="n">nistp256</span> <span class="n">RandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequenceRandomKeySequence</span>
+<span class="c1"># gitlab.com:22 SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add a public key (reference for <a class="reference external" href="https://docs.gitlab.com/ce/ssh/README.html#deploy-keys">Gitlab</a> and for <a class="reference external" href="https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys">GitHub</a>) to the private repos your CI jobs accesses. You may need to ask the admin of that repo.</p></li>
+<li><p>If you are using Docker-in-Docker, make sure that <code class="docutils literal notranslate"><span class="pre">TMPDIR</span></code> is set in your <code class="docutils literal notranslate"><span class="pre">.gitlab-ci.yml</span></code> file so that the SSH agent forwards properly</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The docker runner does not expose /tmp to the docker-in-docker service</span>
+<span class="c1"># This config ensures that the temp folder is located inside the project directory (e.g. for prerelease tests or SSH agent forwarding)</span>
+<span class="n">variables</span><span class="p">:</span>
+  <span class="n">TMPDIR</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{CI_PROJECT_DIR}</span><span class="s2">.tmp&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>If using a self-signed certificate you may need to make the container aware of the runner’s certs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kinetic</span><span class="p">:</span>
+  <span class="n">script</span><span class="p">:</span>
+    <span class="c1"># Run the gitlab script, exposing the runner&#39;s SSL certs.</span>
+    <span class="o">-</span> <span class="o">.</span><span class="n">industrial_ci</span><span class="o">/</span><span class="n">gitlab</span><span class="o">.</span><span class="n">sh</span> <span class="n">DOCKER_RUN_OPTS</span><span class="o">=</span><span class="s2">&quot;-v /etc/ssl/certs:/etc/ssl/certs:ro&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>References:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.gitlab.com/ce/ssh/README.html">https://docs.gitlab.com/ce/ssh/README.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.gitlab.com/ee/ci/ssh_keys/README.html">https://docs.gitlab.com/ee/ci/ssh_keys/README.html</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="custom-docker.html" class="btn btn-neutral float-left" title="Docker Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="prerelease-tests.html" class="btn btn-neutral float-right" title="Pre-release Test Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -4,11 +4,9 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROS2 CANopen Stack &mdash; ros2_canopen 0.0.1 documentation</title>
+  <title>Industrial CI &mdash; industrial_ci  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/collapsible-lists/css/tree_view.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,12 +16,10 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-        <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="overview.html" /> 
+    <link rel="next" title="Introduction" href="getting-started/introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,7 +27,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> ros2_canopen
+            <a href="#" class="icon icon-home"> industrial_ci
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -41,35 +37,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Concepts and Design</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="design-objectives.html">Development Objectives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Bus Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device-manager.html">Device Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system-interface.html">System Interface Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="master.html">Master Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proxy-device.html">Proxy Device Driver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motion-controller.html">Motion Controller Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/supported-systems.html">Supported Systems</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration-package.html">Creating a Configuration Package</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Extension</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="new-driver.html">Creating a new device driver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new-master.html">Creating a new master</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tests and Benchmarks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="alpha-test-description.html">Alpha Tester Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sil-tests.html">Software in the loop Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tested-hardware.html">Tested Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/configurable-variables.html">General Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/workspace-management.html">Workspace Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/custom-docker.html">Docker Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/private-repositories.html">Private Repositories Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/prerelease-tests.html">Pre-release Test Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/abi-checks.html">ABI Check Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/pre-post-commands.html">Pre/post Command Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/operating-system.html">Operating System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/local-run.html">Running Locally</a></li>
 </ul>
 
         </div>
@@ -78,7 +63,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">ros2_canopen</a>
+          <a href="#">industrial_ci</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -86,7 +71,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>ROS2 CANopen Stack</li>
+      <li>Industrial CI</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -96,62 +81,103 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ros2-canopen-stack">
-<h1>ROS2 CANopen Stack<a class="headerlink" href="#ros2-canopen-stack" title="Permalink to this headline"></a></h1>
-<p>This is the documentation of the ROS2 CANopen stack.</p>
+  <section id="industrial-ci">
+<h1>Industrial CI<a class="headerlink" href="#industrial-ci" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/quickstart.html#for-travis-ci">For Travis CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/quickstart.html#for-gitlab-ci">For Gitlab CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/quickstart.html#for-bitbucket-pipelines">For Bitbucket Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/quickstart.html#for-github-actions">For GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/quickstart.html#for-google-cloud-build">For Google Cloud Build</a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Concepts and Design</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="design-objectives.html">Development Objectives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Bus Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device-manager.html">Device Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system-interface.html">System Interface Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="master.html">Master Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proxy-device.html">Proxy Device Driver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motion-controller.html">Motion Controller Driver</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/supported-systems.html">Supported Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/supported-systems.html#supported-ros-distributions">Supported ROS Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/supported-systems.html#supported-cis">Supported CIs</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration-package.html">Creating a Configuration Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/configurable-variables.html">General Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/configurable-variables.html#mandatory-environment-variables">Mandatory Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/configurable-variables.html#optional-environment-variables">Optional environment variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/workspace-management.html">Workspace Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/workspace-management.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/workspace-management.html#workspace-definition">Workspace definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/workspace-management.html#examples">Examples:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/custom-docker.html">Docker Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/custom-docker.html#use-custom-docker-images">Use custom Docker images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/custom-docker.html#pass-custom-variables-to-docker">Pass custom variables to Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/custom-docker.html#re-use-the-container-image">Re-use the container image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/private-repositories.html">Private Repositories Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/private-repositories.html#gitlab-ci">Gitlab CI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/prerelease-tests.html">Pre-release Test Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/prerelease-tests.html#workaround-don-t-want-to-always-run-prerelease-test">(Workaround) Don’t want to always run Prerelease Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/abi-checks.html">ABI Check Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/abi-checks.html#abi-check-example-configs">ABI check example configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/abi-checks.html#tips-for-abi-check-feature">Tips for ABI check feature</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/caching.html">Cache Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/pre-post-commands.html">Pre/post Command Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/pre-post-commands.html#customize-within-the-ci-process">Customize within the CI process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/pre-post-commands.html#customize-outside-of-the-ci-process">Customize outside of the CI process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/operating-system.html">Operating System Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/operating-system.html#ubuntu-and-its-distro-are-guessed-by-default-from-ros-distro">Ubuntu and its distro are guessed by default from ROS_DISTRO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/operating-system.html#use-non-default-ubuntu-distro">Use non-default Ubuntu distro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/operating-system.html#use-debian">Use Debian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/operating-system.html#all-combinations-available-of-os-and-distros">All combinations available of OS and distros</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/local-run.html">Running Locally</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/local-run.html#simplest-way-to-run-locally">Simplest way to run locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/local-run.html#run-locally-using-travis-config">Run locally using Travis config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/local-run.html#run-locally-using-github-workflow-config">Run locally using GitHub-Workflow config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/local-run.html#recurring-runs-for-debugging">Recurring runs for debugging</a></li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Extension</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="new-driver.html">Creating a new device driver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new-master.html">Creating a new master</a></li>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Tests and Benchmarks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="alpha-test-description.html">Alpha Tester Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sil-tests.html">Software in the loop Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tested-hardware.html">Tested Hardware</a></li>
-</ul>
-</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting-started/introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Christoph Hellmann Santos,  Harshavardhan Deshpande.</p>
+    <p>&#169; Copyright 2022, Mathias Lüdtke, Christoph Hellmann Santos.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
